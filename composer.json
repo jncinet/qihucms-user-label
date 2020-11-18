@@ -1,0 +1,30 @@
+{
+  "name": "jncinet/qihucms-user-label",
+  "description": "qihucms user label.",
+  "keywords": [
+    "laravel",
+    "qihucms",
+    "label"
+  ],
+  "homepage": "https://www.qihucms.com",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "zhangye",
+      "email": "zy@qilephp.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Qihucms\\UserLabel\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Qihucms\\UserLabel\\LabelServiceProvider"
+      ]
+    }
+  }
+}
