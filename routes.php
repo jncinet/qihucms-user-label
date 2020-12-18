@@ -4,8 +4,7 @@ use Illuminate\Routing\Router;
 
 // 接口
 Route::group([
-    'prefix' => 'user',
-    'domain' => config('qihu.api_domain'),
+    'prefix' => config('qihu.user_task_profix', 'user'),
     'namespace' => 'Qihucms\UserLabel\Controllers\Api',
     'middleware' => ['api'],
     'as' => 'api.'
