@@ -2,12 +2,13 @@
 
 namespace Qihucms\UserLabel\Controllers\Api;
 
-use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Qihucms\UserLabel\Resources\UserLabelCollection;
 
-class LabelController extends ApiController
+class LabelController extends Controller
 {
     public function __construct()
     {
@@ -22,12 +23,12 @@ class LabelController extends ApiController
     public function userLabel()
     {
         if (method_exists(User::class, 'labels')) {
-            $user = \Auth::user();
+            $user = Auth::user();
 
             return new UserLabelCollection($user->labels);
         }
 
-        return $this->jsonResponse(['配置错误'], '', 422);
+        return $this->jsonResponse([trans('user-label::message.configuration_error')], '', 422);
     }
 
     /**
@@ -39,7 +40,7 @@ class LabelController extends ApiController
     public function store(Request $request)
     {
         if (method_exists(User::class, 'labels')) {
-            $user = \Auth::user();
+            $user = Auth::user();
 
             $labels = $request->input('labels', []);
 
@@ -49,10 +50,10 @@ class LabelController extends ApiController
                 return $this->jsonResponse($labels);
             }
 
-            return $this->jsonResponse(['参数错误'], '', 422);
+            return $this->jsonResponse([trans('user-label::message.invalid_parameter')], '', 422);
         }
 
-        return $this->jsonResponse(['配置错误'], '', 422);
+        return $this->jsonResponse([trans('user-label::message.configuration_error')], '', 422);
     }
 
     /**
@@ -64,7 +65,7 @@ class LabelController extends ApiController
     public function destroy(Request $request)
     {
         if (method_exists(User::class, 'labels')) {
-            $user = \Auth::user();
+            $user = Auth::user();
 
             $labels = $request->input('labels', []);
 
@@ -74,9 +75,9 @@ class LabelController extends ApiController
                 return $this->jsonResponse($labels);
             }
 
-            return $this->jsonResponse(['参数错误'], '', 422);
+            return $this->jsonResponse([trans('user-label::message.invalid_parameter')], '', 422);
         }
 
-        return $this->jsonResponse(['配置错误'], '', 422);
+        return $this->jsonResponse([trans('user-label::message.configuration_error')], '', 422);
     }
 }
