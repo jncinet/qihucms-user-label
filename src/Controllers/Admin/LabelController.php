@@ -2,13 +2,13 @@
 
 namespace Qihucms\UserLabel\Controllers\Admin;
 
+use App\Admin\Controllers\Controller;
 use Qihucms\UserLabel\Models\Label;
-use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class LabelController extends AdminController
+class LabelController extends Controller
 {
     /**
      * Title for current resource.
