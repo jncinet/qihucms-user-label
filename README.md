@@ -11,7 +11,7 @@ $ php artisan migrate
 ```
 ### 发布资源
 ```shell
-$ php artisan vendor:publish --provider="Qihucms\Payment\PaymentServiceProvider"
+$ php artisan vendor:publish --provider="Qihucms\UserLabel\LabelServiceProvider"
 ```
 
 ## 后台菜单
